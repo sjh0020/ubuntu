@@ -42,3 +42,50 @@
 > sudo apt-get remove --purge libreoffice*
 
 然后按照上面做法下载7.2版本安装，最后安装系统语言文件
+
+
+
+# Ubuntu与Windows重复启动，启动项套娃
+## 问题分析
+我电脑在Windows10基础上安装Ubuntu后没有出现Grub而是直接进入Windows，于是用EasyBCD修改BCD启动项内容，[添加Ubuntu启动项](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，这时由于Grub没有写进MBR，所以自动进入的是Windows Boot Manager。修改完BCD后重启这时会出现Windows10与Ubuntu的启动项，如果选择Ubuntu启动就会出现Grub，这时依然可以选择进入Windows10重新进入Windows Boot Manager，于是出现了套娃现象，解决办法很简单，直接把Grub安装到MBR，然后再进入Windows把BCD中Ubuntu启动项删除，等待时间设成0，这样就能只用Grub引导一次分别可以进入Ubuntu与Windows
+
+## 将Grub安装到MBR
+### 安装grub-customizer
+首先进入Ubuntu系统，如果不能进入的参考[使用easyBCD 引导启动ubuntu](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，打开终端执行：
+```shell
+$ sudo apt-get update
+$ sudo apt-get install grub-customizer
+```
+
+如果Ubuntu版本过老则可以从[官网5.1.0下载](https://launchpad.net/grub-customizer/5.1/5.1.0/+download/grub-customizer_5.1.0.tar.gz)，[官网地址](https://launchpad.net/grub-customizer/)，按照压缩包内README从源码编译：
+
+```bash
+$ sudo apt-get update
+$ sudo apt-get install cmake gettext g++ libgtkmm-3.0-dev libssl-dev libarchive-dev
+$ tar zxvf grub-customzier_5.1.0.tar.gz       #exctact grub-customizer_5.1.0.tar.gz
+$ cmake . && make
+$ sudo make install
+```
+### 打开Grub-customizer
+等待一会加载
+![](img/1.png)
+这里可以添加启动项，改名称，按菜单的上下箭头调整顺序
+
+### 安装到MBR
+菜单的文件选项里有安装到MBR的选项，直接安装就好了
+
+### 其他设置
+还能改Grub默认显示时间等
+![](img/2.png)
+
+外观设置中可以设置字体、大小、背景图片等
+![](img/3.png)
+修改完记得点保存，重启之后就默认由Grub引导了
+
+## 修改BCD
+重新进入Windows后可以用EasyBCD修改BCD，删除Ubuntu启动项或等待时间设成0
+
+## 结
+这样就能只由Grub引导而不出现Windows Boot Manager
+
+或者可以把Grub等待时间设成0，就不用把grub安装到MBR，不过不建议这样做
