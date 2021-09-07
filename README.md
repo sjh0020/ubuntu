@@ -36,16 +36,20 @@
 
 或者在终端输入代码：
 
-> wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz
-> wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
-> wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz
->
-> tar -zxvf  LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz  #解压指令具体没使用，作为小白还是用归档管理器友好
-> tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
-> tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz 
+```shell
+$ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz
+$ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
+$ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz
+
+$ tar -zxvf  LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz  #解压指令具体没使用，作为小白还是用归档管理器友好
+$ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
+$ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz 
+```
 
 鉴于前文原因，我直接双击进解压后目录进入DEBS文件夹内打开终端
-> sudo dpkg -i ./*.deb
+```shell
+$ sudo dpkg -i ./*.deb
+```
 
 安装对应文件顺序应先安装libreoffice主体，然后再安装helppack和langpack对应中文离线帮助文档和语言包
 
@@ -62,7 +66,9 @@
 
 首先卸载原来的libreoffice
 
-> sudo apt-get remove --purge libreoffice*
+```shell
+$ sudo apt-get remove --purge libreoffice*
+```
 
 然后按照上面做法下载7.2版本安装，最后安装系统语言文件
 
