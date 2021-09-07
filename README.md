@@ -1,7 +1,5 @@
 ## 目录
 
-<!-- TOC depthFrom:2 -->
-
 - [关于Ubuntu20.04.2提示无法提供完整语言支持解决办法](#关于ubuntu20042提示无法提供完整语言支持解决办法)
     - [问题与原因](#问题与原因)
     - [解决方法1](#解决方法)
@@ -9,9 +7,6 @@
 - [Ubuntu与Windows重复启动，启动项套娃](#ubuntu与windows重复启动启动项套娃)
     - [问题分析](#问题分析)
     - [解决方法](#将grub安装到mbr)
-
-<!-- /TOC -->
-
 
 # 关于Ubuntu20.04.2提示无法提供完整语言支持解决办法
 
@@ -26,11 +21,11 @@
 ### 安装libreoffice
 
 找对方向后在[Libreoffice官方国内镜像下载](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/)下载对应想安装的版本，这里我选择了[7.2.0/deb/x86_64](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/ "Libreoffice7.2.0")，下载3个文件：
-[LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz)           
+[LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz "主体文件")           
 
-[LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz)    
+[LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz "离线帮助文档")    
 
-[LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz)
+[LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz](https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz "语言支持")
 
 然后解压
 
