@@ -2,13 +2,13 @@
 
 <!-- TOC depthFrom:2 -->
 
-- [关于Ubuntu20.04.2提示无法提供完整语言支持解决办法](#关于Ubuntu20.04.2提示无法提供完整语言支持解决办法)
-- [Ubuntu与Windows重复启动，启动项套娃](#Ubuntu与Windows重复启动，启动项套娃)
+- [关于Ubuntu20.04.2提示无法提供完整语言支持解决办法](#1-关于Ubuntu20.04.2提示无法提供完整语言支持解决办法)
+- [Ubuntu与Windows重复启动，启动项套娃](#2-Ubuntu与Windows重复启动，启动项套娃)
 
 <!-- /TOC -->
 
 
-# 关于Ubuntu20.04.2提示无法提供完整语言支持解决办法
+# 1.关于Ubuntu20.04.2提示无法提供完整语言支持解决办法
 
 确定下载文件后提示依赖关系不正确
 看了很多教程都没什么用，作为Ubuntu的小白，尝试打开终端按照在提示下载页中展开详细，逐个apt安装，发现是前缀为libreoffice的软件的报错，而且用sudo apt-get -f install liberoffice提示无法修正，原因是apt中的libreoffice为6.4.7，版本过于古老，目前最新版本为7.2
@@ -55,7 +55,7 @@
 
 
 
-# Ubuntu与Windows重复启动，启动项套娃
+# 2.Ubuntu与Windows重复启动，启动项套娃
 ## 问题分析
 我电脑在Windows10基础上安装Ubuntu后没有出现Grub而是直接进入Windows，于是用EasyBCD修改BCD启动项内容，[添加Ubuntu启动项](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，这时由于Grub没有写进MBR，所以自动进入的是Windows Boot Manager。修改完BCD后重启这时会出现Windows10与Ubuntu的启动项，如果选择Ubuntu启动就会出现Grub，这时依然可以选择进入Windows10重新进入Windows Boot Manager，于是出现了套娃现象，解决办法很简单，直接把Grub安装到MBR，然后再进入Windows把BCD中Ubuntu启动项删除，等待时间设成0，这样就能只用Grub引导一次分别可以进入Ubuntu与Windows
 
