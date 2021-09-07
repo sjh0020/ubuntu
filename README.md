@@ -3,7 +3,7 @@
 <!-- TOC depthFrom:2 -->
 
 - [关于Ubuntu20.04.2提示无法提供完整语言支持解决办法](#关于ubuntu20042提示无法提供完整语言支持解决办法)
-- [Ubuntu与Windows重复启动，启动项套娃](#ubuntu与windows重复启动，启动项套娃)
+- [Ubuntu与Windows重复启动，启动项套娃](#ubuntu与windows重复启动启动项套娃)
 
 <!-- /TOC -->
 
