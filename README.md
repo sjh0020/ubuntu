@@ -88,7 +88,7 @@ $ sudo apt-get install grub-customizer
 
 如果Ubuntu版本过老则可以从[官网5.1.0下载](https://launchpad.net/grub-customizer/5.1/5.1.0/+download/grub-customizer_5.1.0.tar.gz)，[官网地址](https://launchpad.net/grub-customizer/)，按照压缩包内README从源码编译：
 
-```bash
+```shell
 $ sudo apt-get update
 $ sudo apt-get install cmake gettext g++ libgtkmm-3.0-dev libssl-dev libarchive-dev
 $ tar zxvf grub-customzier_5.1.0.tar.gz       #exctact grub-customizer_5.1.0.tar.gz
