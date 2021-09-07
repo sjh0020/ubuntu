@@ -1,5 +1,7 @@
 ## 目录
 
+
+- [Ubuntu常用命令(个人)](#常用命令)
 - [关于Ubuntu20.04.2提示无法提供完整语言支持解决办法](#关于ubuntu20042提示无法提供完整语言支持解决办法)
     - [问题与原因](#问题与原因)
     - [解决方法1](#解决方法)
@@ -7,6 +9,105 @@
 - [Ubuntu与Windows重复启动，启动项套娃](#ubuntu与windows重复启动启动项套娃)
     - [问题分析](#问题分析)
     - [解决方法](#将grub安装到mbr)
+
+# 常用命令
+
+此仅用于[个人]( "Ubuntu20.04")日常使用归纳
+
+## su
+
+超级用户，新安装的Ubuntu需设置su密码
+```Bash
+$ sudo passwd  #设置su密码
+$ su           #切换到超级用户
+```
+
+## 系统版本信息
+
+1、
+```bash
+$ lsb_release -a
+Distributor ID: Ubuntu    //类别是ubuntu
+Description:    Ubuntu 20.04.3 LTS  //2020年2月4月发布的稳定版本，LTS是Long Term Support：长时间支持版本五年
+Release:    20.04  //发行日期或者是发行版本号
+Codename:   focal //ubuntu的代号名称
+```
+2、这个例子是Windows下Linux子系统信息，与一般Linux大体一致：Linux version为Linux内核版本号，gcc version为gcc编译器版本号，#后SMP前为Ubuntu版本号
+
+```bash
+$ cat /proc/version
+Linux version 5.10.16.3-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-linux-gcc (GCC) 9.3.0, GNU ld (GNU Binutils) 2.34.0.20200220) #1 SMP Fri Apr 2 22:23:49 UTC 2021
+```
+3、
+```bash
+$ uname -a
+```
+
+## 软件相关
+
+### apt-get
+
+```Bash
+$ sudo apt-get update   #更新索引文件
+$ sudo apt-get upgrade  #更新已安装软件
+$ sudo apt-get dist-upgrade  # ?
+$ sudo apt-get autoremove (--purge)  #自动卸载不再依赖的软件包
+$ sudo apt-get -f install  #修复依赖关系，可指定包名修复特定软件包依赖关系
+$ sudo apt-get install
+$ sudo apt-get remove (--purge)  #后面加软件包名字，卸载(包括配置文件)已安装软件包
+$ apt search  #搜索软件包库
+$ sudo apt-get autoclean  #清理过时的存档文件(archive files)
+$ sudo apt-get clean  #移除所有的存档文件(archive files)
+$ sudo rm -rf /var/lib/apt/lists/*  #清理下载的索引文件
+$ sudo du -sh /var/cache/apt  #检查当前 APT 缓存文件的使用率
+$ du -sh ~/.cache/thumbnails/  #检查当前 APT 缓存的利用率
+```
+有时apt-get update会出现md5不对应的错误，这是官方未修改完全导致的，过一段时间(几天)就恢复正常，很多人嫌官方源下载慢，要换源，但很可能导致错误，不建议，老老实实等就行了，不用那么折腾，没准以后还要再换回官方源
+
+关于apt-get remove使用经验，如何知道软件名称，图形界面中可以使用系统监视器选择我的进程，查看想卸载且正在运行的软件，[如]( "ubuntu20.04")：扫雷(gnome-mines),数独(gnome-sudoku),对对碰(gnome-mahjongg),aisleriot 接龙(aisleriot),视频(totem),火狐(firefox),启动盘创建器(usb-creator-gtk),文档查看器(evince),文档扫描仪(simple-scan),remmina,rhythmbox,transmission-gtk,shotwell,thunderbird,Ubuntu Software(snapd),茄子(cheese),帮助(yelp)
+
+个别软件监视器监测不到，如livepatch只是抽屉的快捷方式，卸载方法未知，删除快捷方式方法：
+
+```bash
+$ sudo rm /usr/share/applications/software-properties-livepatch.desktop
+```
+还有aisleriot不知道为什么监测不到，但是不影响卸载
+
+### dpkg
+
+用于安装下载的deb包
+```Bash
+$ tar -zxvf *.tar.gz  #解压下载的tar.gz压缩包，或者用归档管理器解压
+$ sudo dpkg -i  #后面需指定deb文件名
+$ sudo dpkg -i *.deb  #安装当前目录下所有的deb包
+```
+
+### snapd
+官宣很nb，安装的应用运行在隔离环境，极致安全。目前难用，有墙
+```bash
+$ snap login
+$ snap logout
+$ snap whoami
+$ snap search
+$ snap find
+$ snap install
+$ snap remove (--purge)
+$ snap list
+```
+
+## bash命令
+```bash
+$ cd
+$ ..
+$ pwd  #显示当前目录
+$ echo  #打印文本
+$ exit  #退出bash/终端
+$ cat  #输出文本内容
+$ ls (-l)  #列出目录下文件与文件夹(逐行显示)
+$ df -h  #检查当前磁盘利用率
+$ mount  #挂载
+$ fdisk  #磁盘操作
+```
 
 # 关于Ubuntu20.04.2提示无法提供完整语言支持解决办法
 
