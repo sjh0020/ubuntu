@@ -7,7 +7,9 @@
     - [解决方法2(推荐)](#更好的解决方法)
 - [Ubuntu与Windows重复启动，启动项套娃](#ubuntu与windows重复启动启动项套娃) - [问题分析](#问题分析) - [解决方法](#将grub安装到mbr) 
 
-# 常用命令 此仅用于[个人](? "Ubuntu20.04")日常使用归纳 
+# 常用命令 
+
+此仅用于[个人](? "Ubuntu20.04")日常使用归纳 
 
 ## su 超级用户，新安装的Ubuntu需设置su密码
 ```bash
@@ -15,7 +17,9 @@ $ sudo passwd #设置su密码
 $ su #切换到超级用户
 ``` 
 
-## 系统版本信息 1、
+## 系统版本信息 
+
+1、
 ```bash
 $ lsb_release -a
 Distributor ID: Ubuntu //类别是ubuntu
@@ -34,6 +38,7 @@ Linux version 5.10.16.3-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-l
 ```bash
 $ uname -a
 ``` 
+
 ## 软件相关 
 
 ### apt-get 
