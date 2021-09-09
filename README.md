@@ -149,8 +149,9 @@ $ sudo dpkg -i ./*.deb
 安装对应文件顺序应先安装libreoffice主体，然后再安装helppack和langpack对应中文离线帮助文档和语言包 ### 卸载libreoffice6.4.7 懂正则的可以用命令卸载旧版，可以试试用sudo apt-get remover --purge libreoffice6.4.7-* 。这里我用synaptic图形界面卸载，搜索libreoffice，在搜索结果中逐个把版本为6.4.7的软件全部右键标记彻底删除，最后点击应用，这时就会自动应用更改，可能还会有卸载残余，继续标记彻底删除应用即可
 可以退出synaptic在终端使用apt-get autoremove移除不再需要的软件包。 ### 安装语言文件 但是这时只是排除了由于libreoffice版本老的报错，语言支持还不完整，再次打开语言支持，确认安装，如果说权限不足，那就用开头办法，退出再打开一次，查看详情在终端用sudo apt-get install逐个安装对应语言文件，然后再次打开就不会提示。 
 
-## 更好的解决方法 首先卸载原来的libreoffice 
+## 更好的解决方法 
 
+首先卸载原来的libreoffice 
 ```bash
 $ sudo apt-get remove --purge libreoffice*
 ``` 然后按照上面做法下载7.2版本安装，最后安装系统语言文件 # Ubuntu与Windows重复启动，启动项套娃 ## 问题分析 我电脑在Windows10基础上安装Ubuntu后没有出现Grub而是直接进入Windows，于是用EasyBCD修改BCD启动项内容，[添加Ubuntu启动项](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，这时由于Grub没有写进MBR，所以自动进入的是Windows Boot Manager。修改完BCD后重启这时会出现Windows10与Ubuntu的启动项，如果选择Ubuntu启动就会出现Grub，这时依然可以选择进入Windows10重新进入Windows Boot Manager，于是出现了套娃现象，解决办法很简单，直接把Grub安装到MBR，然后再进入Windows把BCD中Ubuntu启动项删除，等待时间设成0，这样就能只用Grub引导一次分别可以进入Ubuntu与Windows ## 将Grub安装到MBR
