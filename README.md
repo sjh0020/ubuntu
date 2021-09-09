@@ -109,7 +109,7 @@ $ ls (-l)  #列出目录下文件与文件夹(逐行显示详细信息)
 $ chmod    #将每个文件的权限模式变更至指定模式
 $ info     #
 ```
-关于chmod更多请参考[chmod --hlep](https://github.com/sjh0020/ubuntu/blob/master/help.md#chmod)
+关于chmod更多请参考[chmod --hlep](help.md#chmod)
 
 ## 磁盘操作
 
