@@ -12,7 +12,7 @@
 
 # 常用命令
 
-此仅用于[个人]( "Ubuntu20.04")日常使用归纳
+此仅用于[个人](? "Ubuntu20.04")日常使用归纳
 
 ## su
 
@@ -64,7 +64,7 @@ $ du -sh ~/.cache/thumbnails/  #检查当前 APT 缓存的利用率
 ```
 有时apt-get update会出现md5不对应的错误，这是官方未修改完全导致的，过一段时间(几天)就恢复正常，很多人嫌官方源下载慢，要换源，但很可能导致错误，不建议，老老实实等就行了，不用那么折腾，没准以后还要再换回官方源
 
-关于apt-get remove使用经验，如何知道软件名称，图形界面中可以使用系统监视器选择我的进程，查看想卸载且正在运行的软件，[如]( "ubuntu20.04")：扫雷(gnome-mines),数独(gnome-sudoku),对对碰(gnome-mahjongg),aisleriot 接龙(aisleriot),视频(totem),火狐(firefox),启动盘创建器(usb-creator-gtk),文档查看器(evince),文档扫描仪(simple-scan),remmina,rhythmbox,transmission-gtk,shotwell,thunderbird,Ubuntu Software(snapd),茄子(cheese),帮助(yelp)
+关于apt-get remove使用经验，如何知道软件名称，图形界面中可以使用系统监视器选择我的进程，查看想卸载且正在运行的软件，[如](? "ubuntu20.04")：扫雷(gnome-mines),数独(gnome-sudoku),对对碰(gnome-mahjongg),aisleriot 接龙(aisleriot),视频(totem),火狐(firefox),启动盘创建器(usb-creator-gtk),文档查看器(evince),文档扫描仪(simple-scan),remmina,rhythmbox,transmission-gtk,shotwell,thunderbird,Ubuntu Software(snapd),茄子(cheese),帮助(yelp)
 
 个别软件监视器监测不到，如livepatch只是抽屉的快捷方式，卸载方法未知，删除快捷方式方法：
 
@@ -109,7 +109,7 @@ $ ls (-l)  #列出目录下文件与文件夹(逐行显示详细信息)
 $ chmod    #将每个文件的权限模式变更至指定模式
 $ info     #
 ```
-关于chmod更多请参考[chmod --hlep](https://github.com/sjh0020/ubuntu/biob/master/help.md/#chmod)
+关于chmod更多请参考[chmod --hlep](https://github.com/sjh0020/ubuntu/blob/master/help.md#chmod)
 
 ## 磁盘操作
 
