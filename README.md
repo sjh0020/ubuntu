@@ -17,7 +17,7 @@
 ## su
 
 超级用户，新安装的Ubuntu需设置su密码
-```Bash
+```bash
 $ sudo passwd  #设置su密码
 $ su           #切换到超级用户
 ```
@@ -47,7 +47,7 @@ $ uname -a
 
 ### apt-get
 
-```Bash
+```bash
 $ sudo apt-get update   #更新索引文件
 $ sudo apt-get upgrade  #更新已安装软件
 $ sudo apt-get dist-upgrade  # ?
@@ -76,13 +76,14 @@ $ sudo rm /usr/share/applications/software-properties-livepatch.desktop
 ### dpkg
 
 用于安装下载的deb包
-```Bash
+```bash
 $ tar -zxvf *.tar.gz  #解压下载的tar.gz压缩包，或者用归档管理器解压
 $ sudo dpkg -i  #后面需指定deb文件名
 $ sudo dpkg -i *.deb  #安装当前目录下所有的deb包
 ```
 
 ### snapd
+
 官宣很nb，安装的应用运行在隔离环境，极致安全。目前难用，有墙
 ```bash
 $ snap login
@@ -95,18 +96,48 @@ $ snap remove (--purge)
 $ snap list
 ```
 
-## bash命令
+## 文件(夹)操作
 ```bash
-$ cd
-$ ..
+$ cd  #进入目录
+$ .    #当前目录
+$ ..   #上级目录
 $ pwd  #显示当前目录
-$ echo  #打印文本
-$ exit  #退出bash/终端
+$ echo  #在终端输出文字
 $ cat  #输出文本内容
-$ ls (-l)  #列出目录下文件与文件夹(逐行显示)
+$ ls (-a)  #列出目录下文件与文件夹
+$ ls (-l)  #列出目录下文件与文件夹(逐行显示详细信息)
+$ chmod    #将每个文件的权限模式变更至指定模式
+$ info     #
+```
+关于chmod更多请参考[chmod --hlep](https://github.com/sjh0020/ubuntu/biob/master/help.md/#chmod)
+
+## 磁盘操作
+
+```bash
 $ df -h  #检查当前磁盘利用率
 $ mount  #挂载
 $ fdisk  #磁盘操作
+```
+
+## 网络
+
+```bash
+$ ifconfig  #查看网络信息
+最左边为网卡名，如eth0
+inet为这个网卡分配的ip地址
+netmask为子网掩码
+$ route -n
+Gateway  #网关地址
+Genmask  #子网掩码
+Iface   #网卡名称
+```
+
+## 其他
+
+```bash
+$ clear  #清屏
+$ exit   #退出bash/终端
+$ type   #显示指定命令为内部命令或外部命令，内部命令则显示路径
 ```
 
 # 关于Ubuntu20.04.2提示无法提供完整语言支持解决办法
@@ -132,7 +163,7 @@ $ fdisk  #磁盘操作
 
 或者在终端输入代码：
 
-```shell
+```bash
 $ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz
 $ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
 $ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz
@@ -143,7 +174,7 @@ $ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz
 ```
 
 鉴于前文原因，我直接双击进解压后目录进入DEBS文件夹内打开终端
-```shell
+```bash
 $ sudo dpkg -i ./*.deb
 ```
 
@@ -162,7 +193,7 @@ $ sudo dpkg -i ./*.deb
 
 首先卸载原来的libreoffice
 
-```shell
+```bash
 $ sudo apt-get remove --purge libreoffice*
 ```
 
@@ -171,20 +202,22 @@ $ sudo apt-get remove --purge libreoffice*
 
 
 # Ubuntu与Windows重复启动，启动项套娃
+
 ## 问题分析
+
 我电脑在Windows10基础上安装Ubuntu后没有出现Grub而是直接进入Windows，于是用EasyBCD修改BCD启动项内容，[添加Ubuntu启动项](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，这时由于Grub没有写进MBR，所以自动进入的是Windows Boot Manager。修改完BCD后重启这时会出现Windows10与Ubuntu的启动项，如果选择Ubuntu启动就会出现Grub，这时依然可以选择进入Windows10重新进入Windows Boot Manager，于是出现了套娃现象，解决办法很简单，直接把Grub安装到MBR，然后再进入Windows把BCD中Ubuntu启动项删除，等待时间设成0，这样就能只用Grub引导一次分别可以进入Ubuntu与Windows
 
 ## 将Grub安装到MBR
 ### 安装grub-customizer
 首先进入Ubuntu系统，如果不能进入的参考[使用easyBCD 引导启动ubuntu](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，打开终端执行：
-```shell
+```bash
 $ sudo apt-get update
 $ sudo apt-get install grub-customizer
 ```
 
 如果Ubuntu版本过老则可以从[官网5.1.0下载](https://launchpad.net/grub-customizer/5.1/5.1.0/+download/grub-customizer_5.1.0.tar.gz)，[官网地址](https://launchpad.net/grub-customizer/)，按照压缩包内README从源码编译：
 
-```shell
+```bash
 $ sudo apt-get update
 $ sudo apt-get install cmake gettext g++ libgtkmm-3.0-dev libssl-dev libarchive-dev
 $ tar zxvf grub-customzier_5.1.0.tar.gz       #exctact grub-customizer_5.1.0.tar.gz
