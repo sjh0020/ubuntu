@@ -154,13 +154,18 @@ $ sudo dpkg -i ./*.deb
 首先卸载原来的libreoffice 
 ```bash
 $ sudo apt-get remove --purge libreoffice*
-``` 然后按照上面做法下载7.2版本安装，最后安装系统语言文件 # Ubuntu与Windows重复启动，启动项套娃 ## 问题分析 我电脑在Windows10基础上安装Ubuntu后没有出现Grub而是直接进入Windows，于是用EasyBCD修改BCD启动项内容，[添加Ubuntu启动项](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，这时由于Grub没有写进MBR，所以自动进入的是Windows Boot Manager。修改完BCD后重启这时会出现Windows10与Ubuntu的启动项，如果选择Ubuntu启动就会出现Grub，这时依然可以选择进入Windows10重新进入Windows Boot Manager，于是出现了套娃现象，解决办法很简单，直接把Grub安装到MBR，然后再进入Windows把BCD中Ubuntu启动项删除，等待时间设成0，这样就能只用Grub引导一次分别可以进入Ubuntu与Windows ## 将Grub安装到MBR
+``` 
+
+然后按照上面做法下载7.2版本安装，最后安装系统语言文件 # Ubuntu与Windows重复启动，启动项套娃 ## 问题分析 我电脑在Windows10基础上安装Ubuntu后没有出现Grub而是直接进入Windows，于是用EasyBCD修改BCD启动项内容，[添加Ubuntu启动项](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，这时由于Grub没有写进MBR，所以自动进入的是Windows Boot Manager。修改完BCD后重启这时会出现Windows10与Ubuntu的启动项，如果选择Ubuntu启动就会出现Grub，这时依然可以选择进入Windows10重新进入Windows Boot Manager，于是出现了套娃现象，解决办法很简单，直接把Grub安装到MBR，然后再进入Windows把BCD中Ubuntu启动项删除，等待时间设成0，这样就能只用Grub引导一次分别可以进入Ubuntu与Windows ## 将Grub安装到MBR
 ### 安装grub-customizer
 首先进入Ubuntu系统，如果不能进入的参考[使用easyBCD 引导启动ubuntu](https://jingyan.baidu.com/article/da1091fb7dc94b027849d62b.html)，打开终端执行：
 ```bash
 $ sudo apt-get update
 $ sudo apt-get install grub-customizer
-``` 如果Ubuntu版本过老则可以从[官网5.1.0下载](https://launchpad.net/grub-customizer/5.1/5.1.0/+download/grub-customizer_5.1.0.tar.gz)，[官网地址](https://launchpad.net/grub-customizer/)，按照压缩包内README从源码编译： ```bash
+``` 
+
+如果Ubuntu版本过老则可以从[官网5.1.0下载](https://launchpad.net/grub-customizer/5.1/5.1.0/+download/grub-customizer_5.1.0.tar.gz)，[官网地址](https://launchpad.net/grub-customizer/)，按照压缩包内README从源码编译： 
+```bash
 $ sudo apt-get update
 $ sudo apt-get install cmake gettext g++ libgtkmm-3.0-dev libssl-dev libarchive-dev
 $ tar zxvf grub-customzier_5.1.0.tar.gz #exctact grub-customizer_5.1.0.tar.gz
