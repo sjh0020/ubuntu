@@ -45,16 +45,17 @@ $ uname -a
 
 ### apt-get 
 ```bash
-$ sudo apt-get update #更新索引文件
+$ sudo apt-get update #取回更新的软件包列表信息
 $ sudo apt-get upgrade #更新已安装软件
-$ sudo apt-get dist-upgrade # ?
-$ sudo apt-get autoremove (--purge) #自动卸载不再依赖的软件包
+$ sudo apt-get dist-upgrade # 发行版升级
+$ sudo apt-get (--purge) autoremove #自动卸载(包括配置文件)不再依赖的软件包
 $ sudo apt-get -f install #修复依赖关系，可指定包名修复特定软件包依赖关系
-$ sudo apt-get install
+$ sudo apt-get install #安装新的软件包
+$ sudo apt-get reinstall #重新安装软件包
 $ sudo apt-get remove (--purge) #后面加软件包名字，卸载(包括配置文件)已安装软件包
 $ apt search #搜索软件包库
-$ sudo apt-get autoclean #清理过时的存档文件(archive files)
-$ sudo apt-get clean #移除所有的存档文件(archive files)
+$ sudo apt-get autoclean #删除已下载的旧包文件(archive files)
+$ sudo apt-get clean #移除所有所有已下载的包文件(archive files)
 $ sudo rm -rf /var/lib/apt/lists/* #清理下载的索引文件
 $ sudo du -sh /var/cache/apt #检查当前 APT 缓存文件的使用率
 $ du -sh ~/.cache/thumbnails/ #检查当前 APT 缓存的利用率
@@ -148,7 +149,7 @@ $ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz
 $ sudo dpkg -i ./*.deb
 ``` 
 
-安装对应文件顺序应先安装libreoffice主体，然后再安装helppack和langpack对应中文离线帮助文档和语言包 ### 卸载libreoffice6.4.7 懂正则的可以用命令卸载旧版，可以试试用sudo apt-get remover --purge libreoffice6.4.7-* 。这里我用synaptic图形界面卸载，搜索libreoffice，在搜索结果中逐个把版本为6.4.7的软件全部右键标记彻底删除，最后点击应用，这时就会自动应用更改，可能还会有卸载残余，继续标记彻底删除应用即可
+安装对应文件顺序应先安装libreoffice主体，然后再安装langpack和helppack对应中文离线帮助文档和语言包 ### 卸载libreoffice6.4.7 懂正则的可以用命令卸载旧版，可以试试用sudo apt-get remover --purge libreoffice6.4.7-* 。这里我用synaptic图形界面卸载，搜索libreoffice，在搜索结果中逐个把版本为6.4.7的软件全部右键标记彻底删除，最后点击应用，这时就会自动应用更改，可能还会有卸载残余，继续标记彻底删除应用即可
 可以退出synaptic在终端使用apt-get autoremove移除不再需要的软件包。 ### 安装语言文件 但是这时只是排除了由于libreoffice版本老的报错，语言支持还不完整，再次打开语言支持，确认安装，如果说权限不足，那就用开头办法，退出再打开一次，查看详情在终端用sudo apt-get install逐个安装对应语言文件，然后再次打开就不会提示。 
 
 ## 更好的解决方法 
