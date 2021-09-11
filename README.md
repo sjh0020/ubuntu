@@ -69,7 +69,9 @@ $ du -sh ~/.cache/thumbnails/ #检查当前 APT 缓存的利用率
 $ sudo rm /usr/share/applications/software-properties-livepatch.desktop
 ```
 
-还有aisleriot不知道为什么监测不到，但是不影响卸载 ### dpkg 用于安装下载的deb包
+还有aisleriot不知道为什么监测不到，但是不影响卸载 
+
+### dpkg 用于安装下载的deb包
 ```bash
 $ tar -zxvf *.tar.gz #解压下载的tar.gz压缩包，或者用归档管理器解压
 $ sudo dpkg -i #后面需指定deb文件名
