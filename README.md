@@ -61,7 +61,10 @@ $ sudo du -sh /var/cache/apt #检查当前 APT 缓存文件的使用率
 $ du -sh ~/.cache/thumbnails/ #检查当前 APT 缓存的利用率
 ```
 
-有时apt-get update会出现md5不对应的错误，这是官方未修改完全导致的，过一段时间(几天)就恢复正常，很多人嫌官方源下载慢，要换源，但很可能导致错误，不建议，老老实实等就行了，不用那么折腾，没准以后还要再换回官方源 关于apt-get remove使用经验，如何知道软件名称，图形界面中可以使用系统监视器选择我的进程，查看想卸载且正在运行的软件，[如](? "ubuntu20.04")：扫雷(gnome-mines),数独(gnome-sudoku),对对碰(gnome-mahjongg),aisleriot 接龙(aisleriot),视频(totem),火狐(firefox),启动盘创建器(usb-creator-gtk),文档查看器(evince),文档扫描仪(simple-scan),remmina,rhythmbox,transmission-gtk,shotwell,thunderbird,Ubuntu Software(snapd),茄子(cheese),帮助(yelp) 个别软件监视器监测不到，如livepatch只是抽屉的快捷方式，卸载方法未知，删除快捷方式方法： 
+有时apt-get update会出现md5不对应的错误，这是官方未修改完全导致的，过一段时间(几天)就恢复正常，很多人嫌官方源下载慢，要换源，但很可能导致错误，不建议，老老实实等就行了，不用那么折腾，没准以后还要再换回官方源 
+
+#### apt-get remove
+关于apt-get remove使用经验，如何知道软件名称，图形界面中可以使用系统监视器选择我的进程，查看想卸载且正在运行的软件，[如](? "ubuntu20.04")：扫雷(gnome-mines),数独(gnome-sudoku),对对碰(gnome-mahjongg),aisleriot 接龙(aisleriot),视频(totem),火狐(firefox),启动盘创建器(usb-creator-gtk),文档查看器(evince),文档扫描仪(simple-scan),remmina,rhythmbox,transmission-gtk,shotwell,thunderbird,Ubuntu Software(snapd),茄子(cheese),帮助(yelp) 个别软件监视器监测不到，如livepatch只是抽屉的快捷方式，卸载方法未知，删除快捷方式方法： 
 ```bash
 $ sudo rm /usr/share/applications/software-properties-livepatch.desktop
 ```
@@ -145,7 +148,8 @@ $ type #显示指定命令为内部命令或外部命令，内部命令则显示
 ```bash
 $ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz
 $ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
-$ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz $ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz #解压指令具体没使用，作为小白还是用归档管理器友好
+$ wget -c https://mirrors.cloud.tencent.com/libreoffice/libreoffice/stable/7.2.0/deb/x86_64/LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz 
+$ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz #解压指令具体没使用，作为小白还是用归档管理器友好
 $ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb.tar.gz
 $ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_helppack_zh-CN.tar.gz
 $ tar -zxvf LibreOffice_7.2.0_Linux_x86-64_deb_langpack_zh-CN.tar.gz 
