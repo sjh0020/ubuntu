@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=AriaNg
+Exec=firefox -url http://localhost:6880
+Icon=/home/sjh/图片/ariang.ico
+
